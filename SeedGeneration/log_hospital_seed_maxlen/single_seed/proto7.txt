@@ -1,0 +1,4 @@
+CaseID,event
+Case7,NEW
+Case7,MANUAL
+Case7,BILLED

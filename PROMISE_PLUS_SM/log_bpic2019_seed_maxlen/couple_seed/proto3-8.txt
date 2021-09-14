@@ -1,0 +1,11 @@
+CaseID,event
+Case3,CreatePurchaseOrderItem
+Case3,Vendorcreatesinvoice
+Case3,RecordGoodsReceipt
+Case3,RecordInvoiceReceipt
+Case3,ClearInvoice
+Case8,Vendorcreatesinvoice
+Case8,CreatePurchaseOrderItem
+Case8,RecordGoodsReceipt
+Case8,RecordInvoiceReceipt
+Case8,ClearInvoice

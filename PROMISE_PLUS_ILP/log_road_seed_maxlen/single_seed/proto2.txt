@@ -1,0 +1,7 @@
+CaseID,event
+Case2,CreateFine
+Case2,InsertDateAppealtoPrefecture
+Case2,SendFine
+Case2,InsertFineNotification
+Case2,Addpenalty
+Case2,SendAppealtoPrefecture

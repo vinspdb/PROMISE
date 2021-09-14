@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log>
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+	<string key="origin" value="csv" />
+	<trace>
+		<string key="concept:name" value="Case1" />
+		<event>
+			<string key="concept:name" value="plan" />
+		</event>
+		<event>
+			<string key="concept:name" value="initialize" />
+		</event>
+		<event>
+			<string key="concept:name" value="save" />
+		</event>
+		<event>
+			<string key="concept:name" value="save" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Case2" />
+		<event>
+			<string key="concept:name" value="initialize" />
+		</event>
+		<event>
+			<string key="concept:name" value="plan" />
+		</event>
+		<event>
+			<string key="concept:name" value="save" />
+		</event>
+		<event>
+			<string key="concept:name" value="save" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="beginpreparations" />
+		</event>
+		<event>
+			<string key="concept:name" value="prepareexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="abortexternal" />
+		</event>
+		<event>
+			<string key="concept:name" value="finishpreparations" />
+		</event>
+	</trace>
+</log>

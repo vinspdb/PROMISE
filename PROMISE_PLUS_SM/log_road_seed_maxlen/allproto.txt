@@ -1,0 +1,17 @@
+case:concept:name,concept:name
+Case4,CreateFine
+Case4,SendFine
+Case4,InsertFineNotification
+Case4,Addpenalty
+Case4,SendforCreditCollection
+Case3,CreateFine
+Case3,Payment
+Case1,CreateFine
+Case1,AppealtoJudge
+Case1,SendFine
+Case2,CreateFine
+Case2,InsertDateAppealtoPrefecture
+Case2,SendFine
+Case2,InsertFineNotification
+Case2,Addpenalty
+Case2,SendAppealtoPrefecture

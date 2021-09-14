@@ -1,0 +1,3 @@
+CaseID,event
+Case10,NEW
+Case10,SETSTATUS

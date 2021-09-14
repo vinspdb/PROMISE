@@ -1,0 +1,10 @@
+CaseID,event
+Case2,NEW
+Case2,CHANGEDIAGN
+Case2,FIN
+Case2,RELEASE
+Case2,CODEOK
+Case2,BILLED
+Case8,NEW
+Case8,NEW
+Case8,DELETE

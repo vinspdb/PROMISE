@@ -1,0 +1,136 @@
+print("Discovering...");
+
+importlog = System.getenv("IMPORTLOG");
+exportmodel = System.getenv("EXPORTMODEL");
+
+//---------------------------------------------------
+print("<import file=\"" + importlog + "\">");
+
+// Use the name of the plugin (in lowercase) to open a log
+print("    <pluginfo>");
+org.deckfour.xes.model.XLog log = open_xes_log_file(importlog);
+print("    </pluginfo>");
+
+logname = org.deckfour.xes.extension.std.XConceptExtension.instance().extractName(log);
+print("    <name>" + logname + "</name>");
+print("    <traces>" + log.size() + "</traces>");
+events = 0;
+for (trace : log) {
+    events += trace.size();
+}
+print("    <events>" + events + "</events>");
+print("    <classifiers>" + log.getClassifiers().size() + "</classifiers>");
+print("</import>");
+
+//---------------------------------------------------
+
+import org.processmining.lpengines.interfaces.LPEngine;
+import org.processmining.lpengines.interfaces.LPEngine.EngineType;
+import org.processmining.framework.plugin.PluginContext;
+import org.processmining.hybridilpminer.parameters.NetClass;
+import org.processmining.hybridilpminer.parameters.LPConstraintType;
+import org.processmining.hybridilpminer.parameters.LPVariableType;
+import org.processmining.hybridilpminer.parameters.HybridILPMinerParametersImpl;
+import org.processmining.hybridilpminer.parameters.LPFilterType;
+
+//Set<LPConstraintType> constraints = new HashSet<>(NetClass.PT_NET.getRequiredConstraints());
+PluginContext context;
+LPEngine.EngineType engine = EngineType.LPSOLVE;
+
+disc_type = org.processmining.hybridilpminer.parameters.DiscoveryStrategyType;
+disc = new org.processmining.hybridilpminer.parameters.DiscoveryStrategy();
+disc.setDiscoveryStrategyType(disc_type.CAUSAL_E_VERBEEK);
+
+NetClass netClass = NetClass.PT_NET;
+lpobjtype = org.processmining.hybridilpminer.parameters.LPObjectiveType.WEIGHTED_ABSOLUTE_PARIKH;
+LPVariableType variableType = LPVariableType.DUAL;
+LPConstraintType constraints = LPConstraintType.EMPTY_AFTER_COMPLETION;
+
+filt_type = org.processmining.hybridilpminer.parameters.LPFilterType;
+filt = new org.processmining.hybridilpminer.parameters.LPFilter();
+filt.setFilterType(filt_type.NONE);
+final boolean solve;
+
+//pars = HybridILPMinerParametersImpl;
+//pars.setNetClass(netClass);
+
+//pars = new org.processmining.hybridilpminer.parameters.XLogHybridILPMinerParametersImpl();
+//pars.setClassifier(clss);
+//print("Noise Threshold value:");
+//print(pars.getFilter().getFilterType());
+//---------------------------------------------------
+
+
+//---------------------------------------------------
+import org.processmining.hybridilpminer.plugins.HybridILPMinerPlugin;
+import org.processmining.hybridilpminer.parameters.XLogHybridILPMinerParametersImpl;
+print("<discover miner=\"HybridILPMiner\">");
+clss = (log.getClassifiers().isEmpty() ? new XEventAndClassifier(new XEventNameClassifier(), new XEventLifeTransClassifier()) : log.getClassifiers().get(0));
+
+import org.processmining.hybridilpminer.models.lp.miner.factories.LPMinerFactory;
+import org.processmining.hybridilpminer.models.lp.miner.interfaces.LPMiner;
+import org.processmining.hybridilpminer.models.lp.configuration.interfaces.LPMinerConfiguration;
+import org.processmining.hybridilpminer.models.lp.configuration.factories.LPMinerConfigurationFactory;
+import org.processmining.causalactivitygraph.models.CausalActivityGraph;
+import org.processmining.hybridilpminer.models.lp.configuration.factories.LPMinerConfigurationFactory;
+import org.processmining.hybridilpminer.models.lp.configuration.interfaces.LPMinerConfiguration;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.DiscoveryStrategy;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.LPConstraintType;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.LPFilter;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.LPObjectiveType;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.LPVariableType;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.NetClass;
+import org.processmining.hybridilpminer.models.lp.configuration.implementations.LPMinerConfigurationImpl;
+import org.processmining.hybridilpminer.models.lp.configuration.parameters.LPFilterType;
+import org.processmining.hybridilpminer.parameters.HybridILPMinerParametersImpl;
+
+
+//quiiiiiiiiiiiiiiiiiii
+XLogHybridILPMinerParametersImpl pars = new XLogHybridILPMinerParametersImpl(context);
+
+
+pars.setEventClassifier(clss);
+pars.setFilter(filt);
+//pars.setClassifier(clss);
+
+//HybridILPMinerPlugin ilp = new HybridILPMinerPlugin();
+//ilp.setFilter(filt);
+//miner.run();
+
+
+
+print("    <pluginfo>");
+res = ilp_based_process_discovery(log, pars);
+print(res);
+print("    </pluginfo>");
+
+model = res[0];
+marking = res[1];
+	
+print("    <name>" + model.getLabel() + "</name>");
+print("    <transitions size=\"" + model.getTransitions().size() + "\">");
+for (transition : model.getTransitions()) {
+    print("        <transition>" + transition.getAttributeMap().get(org.processmining.models.graphbased.AttributeMap.LABEL) + "</transition>");
+}
+print("    </transitions>");
+print("    <places size=\"" + model.getPlaces().size() + "\">");
+for (place : model.getPlaces()) {
+    print("        <place>" + place.getAttributeMap().get(org.processmining.models.graphbased.AttributeMap.LABEL) + "</place>");
+}
+print("    </places>");
+print("    <marking>" + marking + "</marking>");
+print("</discover>");
+//---------------------------------------------------
+print("<export file=\"" + exportmodel + "\">");
+
+exportfile = new java.io.File(exportmodel);
+
+print("    <pluginfo>");
+pnml_export_petri_net_(model, exportfile);	
+print("    </pluginfo>");
+
+print("    <bytes>" + exportfile.length() + "</bytes>");
+
+print("</export>");
+
+exit();

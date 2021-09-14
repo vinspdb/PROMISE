@@ -1,0 +1,6 @@
+CaseID,event
+Case4,asubmitted
+Case4,apartlysubmitted
+Case4,wbeoordelenfraude
+Case4,adeclined
+Case4,wbeoordelenfraude

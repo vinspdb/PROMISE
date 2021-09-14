@@ -1,0 +1,12 @@
+sepsis:   epochs:50,  lr:0.001,  bs:256 lstm1:16, lstm2:16 v
+bpic2012: epochs:50,  lr:0.001,  bs:512 lstm1:16, lstm2:16 v
+
+
+
+
+sepsis:   epochs:106  lstm1:32	lstm2:32 bs:128	  lr:0.001266135 no
+road:     epochs:200  lstm1:32	lstm2:32 bs:512	  lr:0.006376417 ok
+bpic2018: epochs:200, lstm1:32	lstm2:32 bs:512   lr:0.000880905 ok
+bpic2019: epochs:200, lstm1:32	lstm2:64 bs:512   lr:0.009948385 ok check2
+bpic2012: epochs:200, lstm1:-	lstm2:-  bs:-     lr:-           -
+hospital: epochs:200, lstm1:-	lstm2:-  bs:-     lr:-           -

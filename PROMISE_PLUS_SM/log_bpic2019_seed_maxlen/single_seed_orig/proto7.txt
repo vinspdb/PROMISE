@@ -1,0 +1,7 @@
+CaseID,event
+Case7,Vendorcreatesdebitmemo
+Case7,CreatePurchaseOrderItem
+Case7,Vendorcreatesinvoice
+Case7,RecordGoodsReceipt
+Case7,RecordInvoiceReceipt
+Case7,ClearInvoice

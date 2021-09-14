@@ -1,0 +1,9 @@
+CaseID,event
+Case4,CreateFine
+Case4,SendFine
+Case4,InsertFineNotification
+Case4,Addpenalty
+Case4,SendforCreditCollection
+Case1,CreateFine
+Case1,AppealtoJudge
+Case1,SendFine
