@@ -1,6 +1,0 @@
-CaseID,event
-Case3,asubmitted
-Case3,apartlysubmitted
-Case3,wafhandelenleads
-Case3,adeclined
-Case3,wafhandelenleads

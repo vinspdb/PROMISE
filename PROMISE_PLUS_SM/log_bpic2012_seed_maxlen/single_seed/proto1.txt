@@ -1,4 +1,0 @@
-CaseID,event
-Case1,asubmitted
-Case1,apartlysubmitted
-Case1,adeclined
