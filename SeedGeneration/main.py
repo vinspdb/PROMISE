@@ -5,11 +5,18 @@ import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Model, load_model
 from os import path, makedirs
-
+import argparse
 
 if __name__ == "__main__":
-        log_name = 'hospital'
-        opt = 'smac'
+        
+        parser = argparse.ArgumentParser(description='Coupling next activity prediction with process discovery.')
+
+        parser.add_argument('-opt', type=int, help="optimizer: smac-hypopt")
+        parser.add_argument('-event_log', type=str, help="Event log name")
+
+        args = parser.parse_args()
+        log_name = args.event_log
+        opt = args.opt
         folder_results = path.join('log_' + log_name + '_seed')
         makedirs(folder_results, exist_ok=True)
         obj = SeedGeneneration(log_name)
@@ -36,20 +43,24 @@ if __name__ == "__main__":
             check = False
             list_pred = []
             checklen = n_act
-            while check == False:
-                y_pred = model.predict([list_seed_temp])
-                y_pred = y_pred.argmax(axis=1)
-                y_pred = le.inverse_transform([y_pred])
-                if y_pred == [invmap.get('END')]:
-                    check = True
-                elif checklen == max_trace:
-                    check = True
-                list_pred.append(y_pred)
-                list_seed_temp = np.append(list_seed_temp, y_pred)
-                list_seed_temp = np.delete(list_seed_temp, 0)
-                list_seed_temp = list_seed_temp.tolist()
-                checklen = checklen + 1
-            print('seed->',i,' complete')
+            if invmap.get('END') in list_seed_temp:
+                check = True
+                print('seed->',i,' complete')
+            else:
+                while check == False:
+                    y_pred = model.predict([list_seed_temp])
+                    y_pred = y_pred.argmax(axis=1)
+                    y_pred = le.inverse_transform([y_pred])
+                    if y_pred == [invmap.get('END')]:
+                        check = True
+                    elif checklen == max_trace:
+                        check = True
+                    list_pred.append(y_pred)
+                    list_seed_temp = np.append(list_seed_temp, y_pred)
+                    list_seed_temp = np.delete(list_seed_temp, 0)
+                    list_seed_temp = list_seed_temp.tolist()
+                    checklen = checklen + 1
+                print('seed->',i,' complete')
             list_prediction.append(list_pred)
             i = i + 1
         print('end seed generation')
@@ -83,7 +94,3 @@ if __name__ == "__main__":
                 z = z + 1
             file_proto.close()
             k = k + 1
-
-
-
-
