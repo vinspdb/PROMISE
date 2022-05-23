@@ -27,6 +27,7 @@ Train neural network:
 python main.py -opt smac -event_log bpic2018insp
 ```
 Process discovery step:
+
 Go to the process discovery folder, e.g. Split Miner.
 ```
 python PROMISE_SM.py -event_log bpic2018insp
