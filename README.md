@@ -22,12 +22,12 @@ keywords = {Process discovery, Predictive process mining, Deep learning, Abstrac
 ```
 
 # How to use:
-
 Train neural network:
 ```
-python main.py <event_log>
+python main.py -opt smac -event_log bpic2018insp
 ```
 Process discovery step:
+Go to the process discovery folder, e.g. Split Miner.
 ```
-python discovery <miner> <event_log>
+python PROMISE_SM.py -event_log bpic2018insp
 ```
