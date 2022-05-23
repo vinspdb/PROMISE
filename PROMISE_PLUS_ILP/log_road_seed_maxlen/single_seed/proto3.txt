@@ -1,3 +1,0 @@
-CaseID,event
-Case3,CreateFine
-Case3,Payment

@@ -1,4 +1,0 @@
-CaseID,event
-Case1,CreateFine
-Case1,AppealtoJudge
-Case1,SendFine
