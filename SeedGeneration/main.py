@@ -11,7 +11,7 @@ if __name__ == "__main__":
         
         parser = argparse.ArgumentParser(description='Coupling next activity prediction with process discovery.')
 
-        parser.add_argument('-opt', type=int, help="optimizer: smac-hypopt")
+        parser.add_argument('-opt', type=str, help="optimizer: smac-hypopt")
         parser.add_argument('-event_log', type=str, help="Event log name")
 
         args = parser.parse_args()
