@@ -1,6 +1,0 @@
-CaseID,event
-Case7,Vendorcreatesdebitmemo
-Case7,CreatePurchaseOrderItem
-Case7,CancelGoodsReceipt
-Case7,CancelInvoiceReceipt
-Case7,ClearInvoice

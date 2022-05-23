@@ -1,5 +1,0 @@
-CaseID,event
-Case1,ChangeApprovalforPurchaseOrder
-Case1,ChangeApprovalforPurchaseOrder
-Case1,CreatePurchaseOrderItem
-Case1,ChangeApprovalforPurchaseOrder
