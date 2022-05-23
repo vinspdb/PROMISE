@@ -18,7 +18,9 @@ if __name__ == "__main__":
         log_name = args.event_log
         opt = args.opt
         folder_results = path.join('log_' + log_name + '_seed')
-        makedirs(folder_results, exist_ok=True)
+        folder_models = path.join('models')
+        makedirs(folder_models, exist_ok = True)
+        makedirs(folder_results, exist_ok = True)
         obj = SeedGeneneration(log_name)
         log, max_trace, mapping, invmap = obj.import_log()#import log
 
