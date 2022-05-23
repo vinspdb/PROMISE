@@ -5,6 +5,7 @@ from pm4py.objects.conversion.log import converter as log_converter
 from time import perf_counter
 from pm4py.algo.evaluation.replay_fitness import evaluator as replay_fitness_evaluator
 from pm4py.algo.evaluation.precision import evaluator as precision_evaluator
+from pm4py.objects.log.importer.xes import importer as xes_importer
 
 import os
 
@@ -16,14 +17,18 @@ def run_fitness(log, net, initial_marking, final_marking):
     fitness = replay_fitness_evaluator.apply(log, net, initial_marking, final_marking,variant=replay_fitness_evaluator.Variants.ALIGNMENT_BASED)
     return fitness
 
-if __name__ == '__main__':
-    #read event log
-    dataset = 'road'
-    log = pd.read_csv("eventlog/" + dataset + '.csv', sep=',', header=0)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Inductive Miner')
+
+    parser.add_argument('-event_log', type=str, help="Event log name")
+    args = parser.parse_args()
+    
+    dataset = args.event_log    #read event log
+    log = xes_importer.apply('../SeedGeneration/XES/'+dataset+'.xes')
     print('[v] log loaded')
 
     #number of prototypes
-    path, dirs, files = next(os.walk('log_' + dataset + '_seed_maxlen/single_seed/'))
+    path, dirs, files = next(os.walk('../SeedGeneration/log_'+dataset+'_seed/'))
     file_count = len(files)
 
     #initialize variables
@@ -38,7 +43,7 @@ if __name__ == '__main__':
     z = 0
     list_proto = []
     while z < num_of_proto:
-        data_temp = pd.read_csv("log_" + dataset + '_seed_maxlen/single_seed/proto' + str(z + 1) + '.txt', sep=',')
+        data_temp = pd.read_csv('../SeedGeneration/log_' + dataset + '_seed/proto' + str(z+1) + '.txt', sep=',')
         list_proto.append(data_temp)
         z = z + 1
 
@@ -90,7 +95,9 @@ if __name__ == '__main__':
 
                 with open(dataset + "-" + str(index) + '-' + str(ind_p) + ".xes", "w") as out_file:
                     for line in buf:
-                        if line == "<log>\n":
+                        if line == '<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">\n':
+                            line = line + add_class + "\n"
+                        elif line == '<log>\n':
                             line = line + add_class + "\n"
                         out_file.write(line)
 
@@ -99,18 +106,20 @@ if __name__ == '__main__':
                 net, initial_marking, final_marking = pnml_importer.apply(
                     dataset + "-" + str(index) + '-' + str(ind_p) + '.pnml')
 
-                print("QUALITY METRICS PROTOTYPE->", index + 1)
-                precision = run_precision(log, net, initial_marking, final_marking)
-                fitness = run_fitness(log, net, initial_marking, final_marking)
+                try:
+                    print("QUALITY METRICS PROTOTYPE->", index + 1)
+                    precision = run_precision(log, net, initial_marking, final_marking)
+                    fitness = run_fitness(log, net, initial_marking, final_marking)
 
-                print("END fitness and precision")
+                    print("END fitness and precision")
 
-                fmeasure = 2 * ((round((precision), 2) * round((fitness['averageFitness']), 2)) / (
+                    fmeasure = 2 * ((round((precision), 2) * round((fitness['averageFitness']), 2)) / (
                             round((precision), 2) + round((fitness['averageFitness']), 2)))
-
-                print("PRECISION %.2f" % precision)
-                print("FITNESS %.2f" % fitness['averageFitness'])
-                print("FMEASURE %.2f" % fmeasure)
+                    print("FMEASURE %.2f" % fmeasure)
+                except:
+                    fitness = 0
+                    precision = 0
+                    fmeasure = 0
                 end_time = perf_counter()
                 print("TOTAL Time")
                 diff = end_time - start_time
@@ -133,8 +142,4 @@ if __name__ == '__main__':
             else:
                 checkLstar = True
                 bestlog.to_csv(dataset + 'bestsubLstar_IM.csv', index=False)
-                print("BEST FMEASURE->", global_bestfmeasure)
                 print('******************* EVALUATION TERMINATE *******************')
-
-
-
