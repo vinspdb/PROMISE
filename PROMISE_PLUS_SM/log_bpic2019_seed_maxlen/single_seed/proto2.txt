@@ -1,4 +1,0 @@
-CaseID,event
-Case2,ChangeCurrency
-Case2,CreatePurchaseOrderItem
-Case2,RecordGoodsReceipt

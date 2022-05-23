@@ -1,7 +1,0 @@
-CaseID,event
-Case1,ChangeApprovalforPurchaseOrder
-Case1,CreatePurchaseOrderItem
-Case1,RecordGoodsReceipt
-Case1,Vendorcreatesinvoice
-Case1,RecordInvoiceReceipt
-Case1,ClearInvoice
