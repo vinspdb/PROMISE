@@ -4,7 +4,7 @@
 
 *Vincenzo Pasquadibisceglie, Annalisa Appice, Giovanna Castellano, Wil Van der Aalst*
 
-[*A multi-view deep learning approach for predictive business process monitoring*](https://ieeexplore.ieee.org/abstract/document/9325056)
+[*PROMISE: Coupling Predictive Process Mining to Process Discovery*](https://www.sciencedirect.com/science/article/pii/S0020025522004844?via%3Dihub)
 
 Please cite our work if you find it useful for your research and work.
 
