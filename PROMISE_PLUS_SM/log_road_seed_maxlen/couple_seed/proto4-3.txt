@@ -1,8 +1,0 @@
-case:concept:name,concept:name
-Case4,CreateFine
-Case4,SendFine
-Case4,InsertFineNotification
-Case4,Addpenalty
-Case4,SendforCreditCollection
-Case3,CreateFine
-Case3,Payment
