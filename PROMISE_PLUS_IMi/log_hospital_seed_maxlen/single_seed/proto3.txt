@@ -1,7 +1,0 @@
-CaseID,event
-Case3,NEW
-Case3,CHANGEEND
-Case3,FIN
-Case3,RELEASE
-Case3,CODEOK
-Case3,BILLED

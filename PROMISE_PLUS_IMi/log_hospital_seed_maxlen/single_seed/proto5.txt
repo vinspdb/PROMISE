@@ -1,3 +1,0 @@
-CaseID,event
-Case5,NEW
-Case5,DELETE
