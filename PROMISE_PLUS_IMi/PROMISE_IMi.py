@@ -6,7 +6,7 @@ from time import perf_counter
 from pm4py.algo.evaluation.replay_fitness import evaluator as replay_fitness_evaluator
 from pm4py.algo.evaluation.precision import evaluator as precision_evaluator
 from pm4py.objects.log.importer.xes import importer as xes_importer
-
+import argparse
 import os
 
 def run_precision(log, net, initial_marking, final_marking):
