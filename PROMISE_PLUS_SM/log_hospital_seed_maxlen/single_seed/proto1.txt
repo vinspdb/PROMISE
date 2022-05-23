@@ -1,3 +1,0 @@
-CaseID,event
-Case1,NEW
-Case1,BILLED
