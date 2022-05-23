@@ -5,8 +5,7 @@ from pm4py.algo.evaluation.replay_fitness import evaluator as replay_fitness_eva
 from pm4py.algo.evaluation.precision import evaluator as precision_evaluator
 import os
 from time import perf_counter
-
-
+from pm4py.objects.log.importer.xes import importer as xes_importer
 
 import os
 
@@ -18,13 +17,21 @@ def run_fitness(log, net, initial_marking, final_marking):
     fitness = replay_fitness_evaluator.apply(log, net, initial_marking, final_marking,variant=replay_fitness_evaluator.Variants.ALIGNMENT_BASED)
     return fitness
 
-if __name__ == '__main__':
-    dataset = 'road'
-    log = pd.read_csv("eventlog/"+dataset+'.csv', sep=',')
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description='Split Miner')
+
+    parser.add_argument('-event_log', type=str, help="Event log name")
+    args = parser.parse_args()
+    
+    dataset = args.event_log
+
+    log = xes_importer.apply('../SeedGeneration/XES/'+dataset+'.xes')
+
     print('[v] log loaded')
 
     import os
-    path, dirs, files = next(os.walk('log_'+dataset+'_seed_maxlen/single_seed/'))
+    path, dirs, files = next(os.walk('../SeedGeneration/log_'+dataset+'_seed/'))
     file_count = len(files)
     print(file_count)
 
@@ -40,7 +47,7 @@ if __name__ == '__main__':
     z = 0
     list_proto = []
     while z < num_of_proto:
-        data_temp = pd.read_csv('log_' + dataset + '_seed_maxlen/single_seed/proto' + str(z+1) + '.txt', sep=',')
+        data_temp = pd.read_csv('../SeedGeneration/log_' + dataset + '_seed/proto' + str(z+1) + '.txt', sep=',')
         list_proto.append(data_temp)
         z = z + 1
     ##############
@@ -88,19 +95,21 @@ if __name__ == '__main__':
 
                 from pm4py.objects.conversion.bpmn import converter as bpmn_converter
                 net, initial_marking, final_marking = bpmn_converter.apply(bpmn_graph)
+                try:
+                    print("QUALITY METRICS PROTOTYPE->", index + 1)
+                    precision = run_precision(log, net, initial_marking, final_marking)
+                    fitness = run_fitness(log, net, initial_marking, final_marking)
 
-                print("QUALITY METRICS PROTOTYPE->", index + 1)
-                precision = run_precision(log, net, initial_marking, final_marking)
-                fitness = run_fitness(log, net, initial_marking, final_marking)
+                    print("END fitness and precision")
 
-                print("END fitness and precision")
+                    fmeasure = 2 * ((round((precision), 2) * round((fitness['averageFitness']), 2)) / (
+                            round((precision), 2) + round((fitness['averageFitness']), 2)))
+                    print("FMEASURE %.2f" % fmeasure)
+                except:
+                    fitness = 0
+                    precision = 0
+                    fmeasure = 0
 
-                fmeasure = 2 * ((round((precision), 2) * round((fitness['averageFitness']), 2)) / (
-                        round((precision), 2) + round((fitness['averageFitness']), 2)))
-
-                print("PRECISION %.2f" % precision)
-                print("FITNESS %.2f" % fitness['averageFitness'])
-                print("FMEASURE %.2f" % fmeasure)
                 end_time = perf_counter()
                 print("TOTAL Time")
                 diff = end_time - start_time
@@ -122,11 +131,4 @@ if __name__ == '__main__':
             else:
                 checkLstar = True
                 bestlog.to_csv(dataset+'bestsubLstar_SM.csv', index=False)
-                print("BEST FMEASURE->", global_bestfmeasure)
                 print('******************* EVALUATION TERMINATE *******************')
-
-
-    print(list_time)
-
-
-
