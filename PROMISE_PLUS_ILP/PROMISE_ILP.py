@@ -23,7 +23,8 @@ if __name__ == "__main__":
     parser.add_argument('-event_log', type=str, help="Event log name")
     args = parser.parse_args()
     
-    dataset = args.event_log    log = xes_importer.apply('../SeedGeneration/XES/'+dataset+'.xes')
+    dataset = args.event_log
+    log = xes_importer.apply('../SeedGeneration/XES/'+dataset+'.xes')
     print('[v] log loaded')
 
     path, dirs, files = next(os.walk('../SeedGeneration/log_'+dataset+'_seed/'))
