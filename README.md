@@ -9,15 +9,16 @@
 Please cite our work if you find it useful for your research and work.
 
 ```
-@article{PASQUADIBISCEGLIE2022,
-title = {PROMISE: Coupling Predictive Process Mining to Process Discovery},
+@article{PASQUADIBISCEGLIE2022250,
+title = {PROMISE: Coupling predictive process mining to process discovery},
 journal = {Information Sciences},
+volume = {606},
+pages = {250-271},
 year = {2022},
 issn = {0020-0255},
 doi = {https://doi.org/10.1016/j.ins.2022.05.052},
 url = {https://www.sciencedirect.com/science/article/pii/S0020025522004844},
-author = {Vincenzo Pasquadibisceglie and Annalisa Appice and Giovanna Castellano and Wil Van der Aalst},
-keywords = {Process discovery, Predictive process mining, Deep learning, Abstraction, Event log summarization}
+author = {Vincenzo Pasquadibisceglie and Annalisa Appice and Giovanna Castellano and Wil {van der Aalst}}
 }
 ```
 
